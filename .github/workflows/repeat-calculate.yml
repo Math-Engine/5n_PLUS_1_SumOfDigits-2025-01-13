@@ -1,0 +1,24 @@
+name: repeat-calculate
+
+on:
+  workflow_dispatch:
+    inputs:
+      n:
+        description: '합성 횟수'
+        required: True
+        default: '10'
+        type: string
+
+run-name: repeat-calculate [${{ github.event.inputs.n || '10' }}]
+
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+    - name: Run repeat-calculate.py
+      run: python repeat-calculate.py ${{ github.event.inputs.n || '10' }}
