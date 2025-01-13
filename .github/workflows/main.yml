@@ -12,7 +12,7 @@ on:
 run-name: 5n_PLUS_1_SumOfDigits-2025-01-13 [${{ github.event.inputs.n || '10' }}]
 
 jobs:
-  build:
+  calculate:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
